@@ -2,26 +2,27 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-/// Base class for widgets that have to track analytics events.
+//XXX: BASE REFACTOR changelog:
+
+/// 1. Remove build()
+/// 2. Add assertions
+
+/// Abstract superclass for widgets that have to track analytics events.
 ///
 /// Usage: inherit from this superclass and override at least
 /// - getName()
+
 abstract class BaseButton extends StatelessWidget {
   const BaseButton({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox();
-  }
-
   /// Tracks event using analytics underlying components
   Future<void> trackAnalyticsEvent() async {
-    if (_hasValidEventName()) {
-      final String? ident = await _getUserId();
-      //XXX: simplified example, just printing data instead of
-      //accessing component that performs tracking
-      print("name: ${getEventName()}, parameters: ${getEventMap(ident)}");
-    }
+    assert(_hasValidEventName());
+
+    final String? ident = await _getUserId();
+    //XXX: simplified example, just printing data instead of
+    //accessing component that performs tracking
+    print("name: ${getEventName()}, parameters: ${getEventMap(ident)}");
   }
 
   /// Returns the name for the analytics event we want to track
