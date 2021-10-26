@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_poli/buttons/base_button.dart';
 
 /// Each child widget inherits from superclass and overrides required methods
-class TermsAndConditionsButtonWidget extends BaseButton {
+class TermsAndConditionsButtonWidget extends StatelessWidget
+    implements IBaseButton {
   const TermsAndConditionsButtonWidget({Key? key}) : super(key: key);
 
   @override
@@ -10,10 +11,7 @@ class TermsAndConditionsButtonWidget extends BaseButton {
 
   @override
   Map<String, dynamic> getEventMap(String? ident) {
-    final props = super.getEventMap(ident);
-
-    //XXX: some child can add its own properties
-    props.addAll({"legal_clause": 1.0});
+    final props = {"legal_clause": 1.0};
 
     return props;
   }
@@ -32,5 +30,11 @@ class TermsAndConditionsButtonWidget extends BaseButton {
         child: const Text("Terms & Conditions"),
       ),
     );
+  }
+
+  @override
+  Future<void> trackAnalyticsEvent() {
+    // TODO: implement trackAnalyticsEvent
+    throw UnimplementedError();
   }
 }

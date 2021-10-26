@@ -1,20 +1,14 @@
 import 'dart:math';
 
-import 'package:flutter/material.dart';
+//XXX: INTERFACES changelog:
 
-//XXX: BASE REFACTOR changelog:
+/// 1. Naming
+/// 2. Usage: implementation on child classes
 
-/// 1. Remove build()
-/// 2. Add assertions
-
-/// Abstract superclass for widgets that have to track analytics events.
+/// Interface for widgets that have to track analytics events.
 ///
-/// Usage: inherit from this superclass and override at least
-/// - getName()
-
-abstract class BaseButton extends StatelessWidget {
-  const BaseButton({Key? key}) : super(key: key);
-
+/// Usage: inherit from this superclass and override all methods
+abstract class IBaseButton {
   /// Tracks event using analytics underlying components
   Future<void> trackAnalyticsEvent() async {
     assert(_hasValidEventName());
