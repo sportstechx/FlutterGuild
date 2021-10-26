@@ -2,11 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_poli/buttons/base_button.dart';
 
 /// Each child widget inherits from superclass and overrides required methods
-class FaqButtonWidget extends BaseButton {
-  const FaqButtonWidget({Key? key}) : super(key: key);
+class TermsAndConditionsButtonWidget extends BaseButton {
+  const TermsAndConditionsButtonWidget({Key? key}) : super(key: key);
 
   @override
-  String getEventName() => "faq";
+  String getEventName() => "terms";
+
+  @override
+  Map<String, dynamic> getEventMap(String? ident) {
+    final props = super.getEventMap(ident);
+
+    //XXX: some child can add its own properties
+    props.addAll({"legal_clause": 1.0});
+
+    return props;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +29,7 @@ class FaqButtonWidget extends BaseButton {
         onPressed: () {
           trackAnalyticsEvent();
         },
-        child: const Text("FAQ"),
+        child: const Text("Terms & Conditions"),
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_poli/buttons/faq_button_widget.dart';
 import 'package:flutter_poli/buttons/privacy_policy_button_widget.dart';
-import 'package:flutter_poli/buttons/terms_conditions_button_widget%20copy.dart';
+import 'package:flutter_poli/buttons/terms_conditions_button_widget.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
