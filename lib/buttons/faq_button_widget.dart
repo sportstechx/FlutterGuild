@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_poli/buttons/base_button.dart';
+import 'package:flutter_poli/buttons/track_analytics_mixin.dart';
 
 /// Each child widget inherits from superclass and overrides required methods
-class FaqButtonWidget extends BaseButton {
+class FaqButtonWidget extends StatelessWidget with TrackAnalyticsMixin {
   const FaqButtonWidget({Key? key}) : super(key: key);
 
   @override
