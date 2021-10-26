@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_poli/buttons/base_button.dart';
+import 'package:flutter_poli/buttons/ibase_button.dart';
 
 /// Each child widget inherits from superclass and overrides required methods
 class PrivacyPolicyButtonWidget extends StatelessWidget implements IBaseButton {
